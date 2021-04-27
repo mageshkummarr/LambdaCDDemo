@@ -1,7 +1,11 @@
 version: 0.1
 phases:
+
   install:
+    runtime-versions:
+      python: 3.6
     commands:
+      - pip install --upgrade awscli
       - aws cloudformation package --template-file samTemplate.yaml --s3-bucket lambdacdbucket --output-template-file outputSamTemplate.yaml
 artifacts:
   type: zip
